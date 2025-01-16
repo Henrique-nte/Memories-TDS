@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link rel="icon" href="img/logo.png">
+    <script src="js/scripts.js" defer></script>
+</head>
+<style>
+    body {
+        background-image: url("img/bg3.png");
+        background-size: cover;
+        background-attachment: fixed;
+    }
+
+    .img_logo_header {
+        width: 65px;
+    }
+
+    .header,
+    .navigation_header {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .header {
+        background-color: #2d2d2d;
+        justify-content: space-around;
+        padding: 0 10%;
+        height: 10.5em;
+        box-shadow: 1px 1px 4px #1c1c1c;
+    }
+
+    .navigation_header {
+        gap: 1em;
+        z-index: 2;
+        font-size: 45px;
+    }
+
+    .content {
+        padding-top: 5em;
+        text-align: center;
+        height: 100vh;
+        transition: 1s;
+    }
+
+    .navigation_header a {
+        text-decoration: none;
+        color: #b040ff;
+        transition: 0.1s;
+        font-weight: bold;
+    }
+
+    .navigation_header a:hover {
+        color: #fff;
+    }
+
+    .active {
+        background: #414141;
+        padding: 12px;
+        border-radius: 10px;
+    }
+
+    .btn_icon_header {
+        background: transparent;
+        border: none;
+        color: #fff;
+        cursor: pointer;
+        display: none;
+
+    }
+
+    /*CSS do botao*/
+    .button-container {
+        margin-top: 105px;
+        display: flex;
+        justify-content: center;
+
+    }
+
+    .button {
+        border: none;
+        font-size: 22px;
+        color: #fff;
+        padding: 10px 16px;
+        background-color: rgb(48, 0, 76);
+        border-radius: 6px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .button:hover {
+        background: #ba74ff;
+    }
+
+
+
+    /*Fim CSS do botao*/
+
+
+
+    /*CSS TRABALHOS  */
+
+
+    * {
+        font-family: 'Arial', sans-serif;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        border: none;
+
+
+        text-decoration: none;
+        transition: all .1s linear;
+        text-transform: capitalize;
+    }
+
+    html {
+        font-size: 62.5%;
+        overflow-x: hidden;
+    }
+
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 3rem 2rem;
+
+    }
+
+    .container .title {
+        font-size: 9.8rem;
+        color: #ffffff;
+        text-transform: uppercase;
+        text-align: center;
+        font-weight: 1000;
+
+    }
+
+    .container .products-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(30rem, 1fr));
+        gap: 2rem;
+
+    }
+
+    .container .products-container .product {
+        text-align: center;
+        padding: 3rem 2rem;
+        background: #313131;
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .7);
+
+        outline-offset: -1.5rem;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+
+    .container .products-container .product:hover {
+        outline: .5rem solid #b260ff;
+        outline-offset: 0;
+    }
+
+    .container .products-container .product img {
+        height: 25rem;
+        border-radius: 8px;
+    }
+
+    .container .products-container .product:hover img {
+        transform: scale(.9);
+    }
+
+    .container .products-container .product h3 {
+        padding: .5rem 0;
+        font-size: 2rem;
+        color: #ffffff;
+    }
+
+    .container .products-container .product:hover h3 {
+        color: #b260ff;
+    }
+
+    .container .products-container .product .price {
+        font-size: 2rem;
+        color: #b2b2b2;
+    }
+
+    .products-preview {
+        position: fixed;
+        top: 0;
+        left: 0;
+        min-height: 100vh;
+        width: 100%;
+        background: rgba(0, 0, 0, .5);
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .products-preview .preview {
+        display: none;
+        padding: 3rem;
+        text-align: center;
+        background: #6a6a6a;
+        position: relative;
+        margin: 9.9rem;
+        width: 100rem;
+        border-radius: 8px;
+        border: 8px solid #b260ff;
+    }
+
+    .products-preview .preview.active {
+        display: inline-block;
+    }
+
+    .products-preview .preview img {
+        height: 55rem;
+        border-radius: 20px;
+    }
+
+    .products-preview .preview .fa-times {
+        position: absolute;
+        top: 1rem;
+        right: 1.5rem;
+        cursor: pointer;
+        color: #ffffff;
+        font-size: 4rem;
+    }
+
+    .products-preview .preview .fa-times:hover {
+        transform: rotate(90deg);
+    }
+
+    .products-preview .preview h3 {
+        color: #ffffff;
+        padding: .9rem 0;
+        font-size: 2.5rem;
+    }
+
+    .products-preview .preview .stars {
+        padding: 1rem 0;
+        font-size: 1.7rem;
+    }
+
+    .products-preview .preview .stars i {
+        color: #27ae60;
+    }
+
+    .products-preview .preview .stars span {
+        color: #999;
+    }
+
+    .products-preview .preview p {
+        line-height: 0.7;
+        padding: 1rem 0;
+        font-size: 1.6rem;
+        color: #ffffff;
+    }
+
+    .products-preview .preview .price {
+        padding: 1rem 0;
+        font-size: 2.5rem;
+        color: #27ae60;
+    }
+
+    .products-preview .preview .buttons {
+        display: flex;
+        gap: 1.5rem;
+        flex-wrap: wrap;
+        margin-top: 1.5rem;
+    }
+
+
+    /*css do botao*/
+    .products-preview .preview .buttons a {
+        flex: 1 1 16rem;
+        padding: 1rem;
+        font-size: 3rem;
+        color: #34074c;
+        border: .2rem solid #ffffff;
+    }
+
+    .products-preview .preview .buttons a.cart {
+        background: #000000;
+        color: #d665ff;
+    }
+
+    .products-preview .preview .buttons a.cart:hover {
+        background: #111;
+    }
+
+    /*css quando ponteiro passa*/
+    .products-preview .preview .buttons a.buy:hover {
+        background: #ba64fc;
+        color: #450e92;
+    }
+
+
+    @media (max-width:991px) {
+
+        html {
+            font-size: 55%;
+        }
+
+    }
+
+    @media (max-width:768px) {
+
+        .products-preview .preview img {
+            height: 25rem;
+        }
+
+    }
+
+    @media (max-width:450px) {
+
+        html {
+            font-size: 50%;
+        }
+
+    }
+
+    /*FIM CSS TRABALHOS  */
+
+    .buttons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .like-btn {
+        background: none;
+        border: none;
+        font-size: 4.1rem;
+        color: #d665ff;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+    }
+
+    .like-btn:hover {
+        color: #b260ff;
+    }
+
+    .like-btn i {
+        margin-right: 5px;
+    }
+
+    .like-count {
+        font-size: 2.8rem;
+        color: #d665ff;
+        font-weight: bold;
+        margin-left: 5px;
+    }
+</style>
+
+
+<body>
+    <br><br><br><br><br><br>
+
+    <div class="container">
+        <h3 class="title"> Trabalhos TDS 303 </h3>
+        <br><br><br><br><br><br>
+        <div class="products-container">
+
+            <div class="product" data-name="p-1">
+                <img src="img/1.jpeg" alt="">
+                <h3>Trabalho camisas TDS</h3>
+                <div class="price">Cujo objetivo foi criarmos nossa camisa do técnico.
+                </div>
+            </div>
+
+            <div class="product" data-name="p-2">
+                <img src="img/cu.jpeg" alt="">
+                <h3>Trabalho de Cuminância</h3>
+                <div class="price">Trabalho realizado pela turma 303, com apresentações sobre projetos </div>
+            </div>
+
+            <div class="product" data-name="p-3">
+                <img src="img/fis.jpeg" alt="">
+                <h3>Trabalho de Física</h3>
+                <div class="price">trabalho realizado pela turma 303, com apresentações sobre projetos </div>
+            </div>
+
+            <div class="product" data-name="p-4">
+                <img src="img/balutt.jpeg" alt="">
+                <h3>Trabalho da Thais sobre aplicativo.</h3>
+                <div class="price">Objetivo era criar um aplicativo e suas funcionalidades.</div>
+            </div>
+
+            <div class="product" data-name="p-5">
+                <img src="img/rio grande.webp" alt="">
+                <h3>Trabalho Solidário</h3>
+                <div class="price">trabalho realizado pela turma 303, em prol do Rio Grande do Sul. </div>
+            </div>
+
+            <div class="product" data-name="p-6">
+                <img src="img/Trabalho Interclasse.webp" alt="">
+                <h3>Trabalho apresentação do interclasse</h3>
+                <div class="price">trabalho realizado pela turma 303, apresentação do mascote e grito de guerra. </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="products-preview">
+
+        <!-- PREVIEW TRABALHO 1 -->
+        <div class="preview" data-target="p-1">
+            <i class="fas fa-times"></i>
+            <img src="img/1.jpeg" alt="">
+            <h3>Galera legal reunida 1</h3>
+            <p>Galera legal reunida 1</p>
+
+            <div class="buttons">
+                <button class="like-btn" id="like-btn-1" onclick="handleLike(1)">
+                    <i class="fas fa-heart"></i>
+                    <span class="like-count" id="like-count-1">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- PREVIEW TRABALHO 2 -->
+        <div class="preview" data-target="p-2">
+            <i class="fas fa-times"></i>
+            <img src="img/cu.jpeg" alt="">
+            <h3>Galera legal reunida 2</h3>
+            <p>Galera legal reunida 2</p>
+
+            <div class="buttons">
+                <button class="like-btn" id="like-btn-2" onclick="handleLike(2)">
+                    <i class="fas fa-heart"></i>
+                    <span class="like-count" id="like-count-2">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- PREVIEW TRABALHO 3 -->
+        <div class="preview" data-target="p-3">
+            <i class="fas fa-times"></i>
+            <img src="img/fis.jpeg" alt="">
+            <h3>Galera legal reunida 3</h3>
+            <p>Galera legal reunida 3</p>
+
+            <div class="buttons">
+                <button class="like-btn" id="like-btn-3" onclick="handleLike(3)">
+                    <i class="fas fa-heart"></i>
+                    <span class="like-count" id="like-count-3">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- PREVIEW TRABALHO 4 -->
+        <div class="preview" data-target="p-4">
+            <i class="fas fa-times"></i>
+            <img src="img/balutt.jpeg" alt="">
+            <h3>Galera legal reunida 4</h3>
+            <p>Galera legal reunida 4</p>
+
+            <div class="buttons">
+                <button class="like-btn" id="like-btn-4" onclick="handleLike(4)">
+                    <i class="fas fa-heart"></i>
+                    <span class="like-count" id="like-count-4">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- PREVIEW TRABALHO 5 -->
+        <div class="preview" data-target="p-5">
+            <i class="fas fa-times"></i>
+            <img src="img/rio grande.webp" alt="">
+            <h3>Galera legal reunida 5</h3>
+            <p>Galera legal reunida 5</p>
+
+            <div class="buttons">
+                <button class="like-btn" id="like-btn-5" onclick="handleLike(5)">
+                    <i class="fas fa-heart"></i>
+                    <span class="like-count" id="like-count-5">0</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- PREVIEW TRABALHO 6 -->
+        <div class="preview" data-target="p-6">
+            <i class="fas fa-times"></i>
+            <img src="img/Trabalho Interclasse.webp" alt="">
+            <h3>Galera legal reunida 6</h3>
+            <p>Galera legal reunida 6</p>
+
+            <div class="buttons">
+                <button class="like-btn" id="like-btn-6" onclick="handleLike(6)">
+                    <i class="fas fa-heart"></i>
+                    <span class="like-count" id="like-count-6">0</span>
+                </button>
+            </div>
+        </div>
+
+    </div>
+
+
+    <script>const express = require('express');
+        const mysql = require('mysql');
+        const app = express();
+        app.use(express.json());
+
+        const db = mysql.createConnection({
+            host: 'localhost',
+            user: 'root',
+            password: '',
+            database: 'memories'
+        });
+
+        db.connect((err) => {
+            if (err) throw err;
+            console.log('Conectado ao banco de dados');
+        });
+
+        app.post('/like', (req, res) => {
+            const { user_id, work_id } = req.body;
+
+            // Verificar se o usuário já curtiu o trabalho
+            const checkQuery = 'SELECT * FROM likes WHERE user_id = ? AND work_id = ?';
+            db.query(checkQuery, [user_id, work_id], (err, result) => {
+                if (err) return res.status(500).send(err);
+
+                if (result.length > 0) {
+                    return res.status(400).json({ message: 'Usuário já curtiu este trabalho.' });
+                }
+
+                // Inserir a curtida no banco de dados
+                const insertQuery = 'INSERT INTO likes (user_id, work_id) VALUES (?, ?)';
+                db.query(insertQuery, [user_id, work_id], (err, result) => {
+                    if (err) return res.status(500).send(err);
+                    res.status(200).json({ message: 'Curtida adicionada com sucesso!' });
+                });
+            });
+        });
+
+        // Rota para obter a contagem de curtidas por trabalho
+        app.get('/likes/:work_id', (req, res) => {
+            const work_id = req.params.work_id;
+            const query = 'SELECT COUNT(*) AS like_count FROM likes WHERE work_id = ?';
+            db.query(query, [work_id], (err, result) => {
+                if (err) return res.status(500).send(err);
+                res.json({ like_count: result[0].like_count });
+            });
+        });
+
+        app.listen(3000, () => console.log('Servidor rodando na porta 3000'));
+    </script>
+
+
+    <script>async function handleLike(workId) {
+            const userId = getUserId(); // Função para obter o ID do usuário logado
+
+            try {
+                const response = await fetch('http://localhost:3000/like', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ user_id: userId, work_id: workId })
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    updateLikeCount(workId);
+                } else {
+                    alert(data.message); // Exibe mensagem se o usuário já curtiu
+                }
+            } catch (error) {
+                console.error('Erro ao enviar a curtida:', error);
+            }
+        }
+
+        // Função para atualizar o contador de curtidas
+        async function updateLikeCount(workId) {
+            try {
+                const response = await fetch(`http://localhost:5500/likes/${workId}`);
+                const data = await response.json();
+                const likeCountElement = document.getElementById(`like-count-${workId}`);
+                likeCountElement.textContent = data.like_count;
+            } catch (error) {
+                console.error('Erro ao atualizar a contagem de curtidas:', error);
+            }
+        }
+
+        // Mock da função getUserId para retornar o ID do usuário. Substitua pela lógica do seu sistema de autenticação.
+        function getUserId() {
+            return 1; // ID do usuário atual, substitua conforme necessário
+        }
+    </script>
+
+
+
+
+    <div class="button-container">
+        <a href="home.html" class="button" style="text-decoration: none;">Voltar</a>
+    </div>
+
+</body>
+
+</html>
