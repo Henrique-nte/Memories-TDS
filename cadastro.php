@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Tela de login</title>
+  <title>Tela de Cadastro</title>
   <link rel="icon" href="img/logo.png">
   <style>
     body {
@@ -130,27 +130,40 @@
         if (isset($_POST['nome']) && isset($_POST['senha']) && isset($_POST['turma'])) {
 
           // Armazena os valores dos campos enviados no formulário
-          $nome = $_POST['nome'];
+          $nome = trim($_POST['nome']);
           $senha = $_POST['senha'];
-          $turma = $_POST['turma'];
+          $turma = trim($_POST['turma']);
 
-          // Verifica se o nome de usuário já está cadastrado no banco de dados
-          $sql_verifica_nome = "SELECT * FROM usuarios WHERE nome = '$nome'";
-          $resultado_verifica_nome = $mysqli->query($sql_verifica_nome);
-
-          // Se o nome já estiver cadastrado, exibe uma mensagem de erro
-          if ($resultado_verifica_nome->num_rows > 0) {
-            echo "<p class='ja'>Nome já cadastrado</p>";
+          // Validação dos campos
+          if (empty($nome) || empty($senha) || empty($turma)) {
+            echo "<p class='erro'>Todos os campos são obrigatórios!</p>";
+          } elseif (strlen($senha) < 6) {
+            echo "<p class='erro'>A senha deve ter pelo menos 6 caracteres.</p>";
           } else {
-            // Se o nome não estiver cadastrado, insere o novo usuário no banco de dados
-            $sql_code = "INSERT INTO usuarios (nome, senha, turma) VALUES ('$nome', '$senha', '$turma')";
-            $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
+            // Verifica se o nome de usuário já está cadastrado no banco de dados
+            $stmt = $mysqli->prepare("SELECT * FROM usuarios WHERE nome = ?");
+            $stmt->bind_param("s", $nome);
+            $stmt->execute();
+            $resultado_verifica_nome = $stmt->get_result();
 
-            // Verifica se a inserção foi bem-sucedida
-            if ($sql_query) {
-              echo "<p class='acerto'>Usuário cadastrado com sucesso!</p>";
+            // Se o nome já estiver cadastrado, exibe uma mensagem de erro
+            if ($resultado_verifica_nome->num_rows > 0) {
+              echo "<p class='ja'>Nome já cadastrado</p>";
             } else {
-              echo "<p class='erro'>Falha! Nome ou senha incorretos</p>";
+              // Hash da senha
+              $senha_hash = password_hash($senha, PASSWORD_DEFAULT);
+
+              // Se o nome não estiver cadastrado, insere o novo usuário no banco de dados
+              $stmt = $mysqli->prepare("INSERT INTO usuarios (nome, senha, turma) VALUES (?, ?, ?)");
+              $stmt->bind_param("sss", $nome, $senha_hash, $turma);
+              $stmt->execute();
+
+              // Verifica se a inserção foi bem-sucedida
+              if ($stmt->affected_rows > 0) {
+                echo "<p class='acerto'>Usuário cadastrado com sucesso!</p>";
+              } else {
+                echo "<p class='erro'>Falha ao cadastrar. Tente novamente mais tarde.</p>";
+              }
             }
           }
         }

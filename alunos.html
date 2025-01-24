@@ -4,17 +4,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Alunos </title>
+  <title>Alunos</title>
   <link rel="stylesheet" href="css/style.css">
   <link rel="icon" href="img/logo.png">
 
-
-  <!--Swiper CSS -->
+  <!-- Swiper CSS -->
   <link rel="stylesheet" href="css/swiper-bundle.min.css">
 
   <style>
     body {
-
       background-image: url(img/pp.jpg);
       background-size: cover;
       background-attachment: fixed;
@@ -25,49 +23,36 @@
       margin: 0;
     }
 
-
-
     .container .title {
       font-size: 6.8rem;
       color: #ffffff;
       text-transform: uppercase;
       text-align: center;
       font-weight: 1000;
-      margin: 0%;
+      margin: 0;
     }
   </style>
-
 </head>
 
 <body>
-
-  <!--TÍTULO-->
-
-
+  <!-- TÍTULO -->
   <div class="container">
-    <h3 class="title"> ALUNOS TDS</h3>
+    <h3 class="title">ALUNOS TDS</h3>
     <br><br><br><br><br><br>
-    <div class="products-container">
-    </div>
-    <!--FIM TÍTULO-->
 
+    <div class="products-container"></div>
 
-
-
-    <!--ALUNOS-->
+    <!-- ALUNOS -->
     <div class="slide-container swiper">
       <div class="slide-content">
         <div class="card-wrapper swiper-wrapper">
 
-
+          <!-- CARTÕES DE ALUNOS -->
           <div class="card swiper-slide">
             <div class="image-content">
               <span class="overlay"></span>
-
               <div class="card-image">
-
-                <img src="img/perfil1.jpeg" alt="" class="card-img">
-
+                <img src="img/perfil1.jpeg" alt="Foto de Shelby" class="card-img">
               </div>
             </div>
             <div class="card-content">
@@ -75,24 +60,19 @@
               <p class="description">
                 Shelby tem 17 anos, um dos únicos que faz alguma coisa nas aulas de TDS. É responsável pelo
                 back-end do site.
-                        
               </p>
-
               <a href="https://www.instagram.com/shelby.ngcr/" target="_blank" class="button"
-                style="text-decoration: none;">instagram</a>
-
+                style="text-decoration: none;">Instagram</a>
             </div>
           </div>
 
-
+          <!-- Repetição dos cartões para outros alunos -->
+          <!-- Exemplo de outro cartão -->
           <div class="card swiper-slide">
             <div class="image-content">
               <span class="overlay"></span>
-
               <div class="card-image">
-
-                <img src="img/ga.jpeg" alt="" class="card-img">
-
+                <img src="img/ga.jpeg" alt="Foto de Gabriel" class="card-img">
               </div>
             </div>
             <div class="card-content">
@@ -107,6 +87,7 @@
           </div>
 
 
+          <!-- Continue repetindo os cartões para os outros alunos -->
 
           <div class="card swiper-slide">
             <div class="image-content">
@@ -312,37 +293,27 @@
           </div>
 
 
-
-
         </div>
-
-
-
-
       </div>
 
+      <!-- Controles do Swiper -->
       <div class="swiper-button-next swiper-navBtn"></div>
       <div class="swiper-button-prev swiper-navBtn"></div>
       <div class="swiper-pagination"></div>
-
-
     </div>
 
+    <!-- Botão de voltar -->
     <div class="buttonn-container">
       <a href="home.html" class="buttonn" style="text-decoration: none;">Voltar</a>
     </div>
+    <!-- FIM ALUNOS -->
+  </div>
 
-    <!--FIM ALUNOS-->
+  <!-- Swiper JS -->
+  <script src="js/swiper-bundle.min.js"></script>
 
-
-
+  <!-- JavaScript -->
+  <script src="js/script.js"></script>
 </body>
-
-<!--Swiper js -->
-<script src="js/swiper-bundle.min.js"></script>
-
-<!--Java script -->
-<script src="js/script.js"></script>
-
 
 </html>

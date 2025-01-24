@@ -115,62 +115,54 @@
         <p>Ainda não tem uma conta? <a href="cadastro.php">Criar uma conta</a></p>
 
         <?php
-          // Incluindo o arquivo de conexão com o banco de dados
-          include('conexao.php');
+        // Incluindo o arquivo de conexão com o banco de dados
+        include('conexao.php');
 
-          // Verificando se os dados do formulário foram enviados
-          if (isset($_POST['nome']) || isset($_POST['senha']) || isset($_POST['turma'])) {
+        // Verificando se os dados do formulário foram enviados
+        if (isset($_POST['nome']) && isset($_POST['senha']) && isset($_POST['turma'])) {
 
-              // Verificação de campo vazio: Nome
-              if (strlen($_POST['nome']) == 0) {
-                  echo "<p class='erro'>Preencha seu Nome de usuário</p>";
-              } 
-              // Verificação de campo vazio: Senha
-              else if (strlen($_POST['senha']) == 0) {
-                  echo "<p class='erro'>Preencha sua senha</p>";
-              } 
-              // Verificação de campo vazio: Turma
-              else if (strlen($_POST['turma']) == 0) {
-                  echo "<p class='erro'>Preencha sua turma</p>";
-              } 
-              else {
-                  // Protegendo os dados recebidos do formulário contra SQL Injection
-                  $nome = $mysqli->real_escape_string($_POST['nome']);
-                  $senha = $mysqli->real_escape_string($_POST['senha']);
-                  $turma = $mysqli->real_escape_string($_POST['turma']);
+          // Validação dos campos
+          $nome = trim($_POST['nome']);
+          $senha = $_POST['senha'];
+          $turma = trim($_POST['turma']);
 
-                  // Montando a query SQL para verificar a existência do usuário com o nome, senha e turma informados
-                  $sql_code = "SELECT * FROM usuarios WHERE nome = '$nome' AND senha = '$senha' AND turma = '$turma'";
+          if (empty($nome) || empty($senha) || empty($turma)) {
+            echo "<p class='erro'>Todos os campos são obrigatórios!</p>";
+          } else {
+            // Protegendo os dados recebidos do formulário contra SQL Injection
+            $stmt = $mysqli->prepare("SELECT * FROM usuarios WHERE nome = ?");
+            $stmt->bind_param("s", $nome);
+            $stmt->execute();
+            $resultado = $stmt->get_result();
 
-                  // Executando a consulta SQL
-                  $sql_query = $mysqli->query($sql_code) or die("Falha na execução do código SQL: " . $mysqli->error);
+            if ($resultado->num_rows == 1) {
+              // Obtendo os dados do usuário
+              $usuario = $resultado->fetch_assoc();
 
-                  // Verificando a quantidade de registros retornados
-                  $quantidade = $sql_query->num_rows;
+              // Verificando a senha
+              if (password_verify($senha, $usuario['senha'])) {
+                // Iniciando a sessão caso não tenha sido iniciada ainda
+                if (!isset($_SESSION)) {
+                  session_start();
+                }
 
-                  // Se houver exatamente um usuário com as credenciais corretas
-                  if ($quantidade == 1) {
-                      // Obtendo os dados do usuário
-                      $usuario = $sql_query->fetch_assoc();
-
-                      // Iniciando a sessão caso não tenha sido iniciada ainda
-                      if (!isset($_SESSION)) {
-                          session_start();
-                      }
-
-                      // Salvando as informações do usuário na sessão
-                      $_SESSION['id'] = $usuario['id'];     // ID do usuário
-                      $_SESSION['nome'] = $usuario['nome']; // Nome do usuário
-                      $_SESSION['turma'] = $usuario['turma']; // Turma do usuário
-
-                      // Redirecionando para a página home.html
-                      header("Location: home.html");
-                  } else {
-                      // Se não encontrar o usuário com as credenciais corretas
-                      echo "<p class='erro'>Falha! Nome de usuário, senha ou turma incorretos</p>";
-                  }
+                // Salvando as informações do usuário na sessão
+                $_SESSION['id'] = $usuario['id'];     // ID do usuário
+                $_SESSION['nome'] = $usuario['nome']; // Nome do usuário
+                $_SESSION['turma'] = $usuario['turma']; // Turma do usuário
+        
+                // Redirecionando para a página home.html
+                header("Location: home.html");
+              } else {
+                // Se a senha não for correta
+                echo "<p class='erro'>Senha incorreta.</p>";
               }
+            } else {
+              // Se o nome não for encontrado
+              echo "<p class='erro'>Nome de usuário ou turma incorretos.</p>";
+            }
           }
+        }
         ?>
       </form>
     </div>
