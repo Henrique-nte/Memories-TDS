@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Memórias Terceirão 303 TDS </title>
+  <title>Tela de vídeos </title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -15,7 +15,6 @@
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
 
   <link rel="stylesheet" href="css/lightbox.css">
-
 
 
   <link rel="icon" href="img/logo.png">
@@ -45,17 +44,124 @@
     a:active,
     a:focus {
       outline: none;
+    }
 
+    /* Centralizar o título "VÍDEOS" no topo da seção */
+    #seção\ videos {
+      text-align: center;
+      font-size: 2.5rem;
+      /* Tamanho maior para destaque */
+      font-weight: bold;
+      color: #fff;
+      /* Contraste com o fundo */
+      text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+      /* Efeito de sombra */
+      margin-bottom: 20px;
+    }
+
+    /* Ajustar o layout do container de vídeos */
+    .video-container2 {
+      display: flex;
+      flex-wrap: wrap;
+      /* Permite quebra de linha para responsividade */
+      gap: 20px;
+      /* Espaçamento entre os vídeos */
+      justify-content: center;
+      /* Centraliza os vídeos horizontalmente */
+      padding: 20px;
+    }
+
+    /* Estilo dos vídeos */
+    .video-container2 .video {
+      width: 300px;
+      /* Largura fixa para os vídeos */
+      height: 200px;
+      /* Altura fixa */
+      overflow: hidden;
+      /* Oculta partes fora do container */
+      border-radius: 10px;
+      /* Cantos arredondados */
+      box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+      /* Sombra ao redor dos vídeos */
+      transition: transform 0.3s ease;
+      /* Animação ao passar o mouse */
+    }
+
+    .video-container2 .video video {
+      width: 100%;
+      /* Ajusta para ocupar toda a largura */
+      height: 100%;
+      /* Ajusta para ocupar toda a altura */
+      object-fit: cover;
+      /* Ajusta o vídeo ao container */
+      cursor: pointer;
+      /* Cursor de clique nos vídeos */
+    }
+
+    .video-container2 .video:hover {
+      transform: scale(1.05);
+      /* Efeito de zoom ao passar o mouse */
+    }
+
+    /* Estilo do pop-up de vídeo */
+    .popup-video {
+      display: none;
+      /* Esconde o pop-up por padrão */
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.8);
+      /* Fundo escuro semi-transparente */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      /* Fica acima de todos os elementos */
+    }
+
+    .popup-video video {
+      width: 80%;
+      max-width: 900px;
+      /* Limita a largura máxima do vídeo */
+      border-radius: 10px;
+    }
+
+
+
+
+    .popup-video span {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 2rem;
+      color: #fff;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      /* Garante que o span seja redondo */
+      padding: 15px;
+      /* Ajuste para garantir que seja proporcionalmente redondo */
+      width: 60px;
+      /* Largura fixa */
+      height: 60px;
+      /* Altura fixa */
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      /* Alinha o conteúdo (ícone) no centro */
+      transition: background 0.3s ease;
+    }
+
+    .popup-video span:hover {
+      background: rgba(255, 255, 255, 0.5);
     }
   </style>
 
 </head>
 
-
 <body>
-
-
-
 
   <!--MENU (SHELBY)-->
   <!-- Logo -->
@@ -65,16 +171,11 @@
     </a>
   </div>
 
-
-
-
   <header id="header">
     <div class="container">
       <div class="flex">
 
-
         <!-- Navegação -->
-
         <nav>
           <ul>
             <!--<li> <a href="#seção fotos"> FOTOS </a> </li>-->
@@ -93,19 +194,12 @@
 
   <!--FIM MENU (SHELBY)-->
 
-
   <br><br>
-
-
-
 
   <!--VIDEOS (SHELBY)-->
 
-
   <div class="container2">
-    <h1 id="seção videos">VÍDEOS
-
-    </h1>
+    <h1>VÍDEOS</h1>
     <div class="video-container2">
       <div class="video"><video src="videos/video-1.mp4" muted></video></div>
       <div class="video"><video src="videos/video-2.mp4" muted></video></div>
@@ -113,24 +207,17 @@
       <div class="video"><video src="videos/video-4.mp4" muted></video></div>
       <div class="video"><video src="videos/video 02.mp4" muted></video></div>
       <div class="video"><video src="videos/video-six.mp4" muted></video></div>
-
-
     </div>
 
     <div class="popup-video">
       <span>&times;</span>
       <video src="videos/video-1.mp4" muted autoplay controls></video>
     </div>
-
   </div>
 
   <br><br><br>
 
-
   <!--FIM VIDEOS (SHELBY)-->
-
-
-
 
   <footer>
     <div id="footer_content">
@@ -207,27 +294,22 @@
     </div>
   </footer>
 
-
-
   <!--FIM DO FOOTER (SHELBY)-->
 
   <script src="js/menu.js"></script>
   <script src="js/lightbox-plus-jquery.js"></script>
 
   <script>
-
     document.querySelectorAll('.video-container2 video').forEach(vid => {
       vid.onclick = () => {
         document.querySelector('.popup-video').style.display = 'block';
         document.querySelector('.popup-video video').src = vid.getAttribute('src')
-
       }
     });
 
     document.querySelector('.popup-video span').onclick = () => {
       document.querySelector('.popup-video').style.display = 'none';
     }
-
   </script>
 
 </body>

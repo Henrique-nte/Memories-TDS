@@ -4,67 +4,42 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Memórias Terceirão 303 TDS </title>
-
-
+  <title>Memórias Terceirão 303 TDS</title>
   <link rel="stylesheet" href="css/style.css">
-
-  <link rel="stylesheet" type="text/css"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
-
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="css/lightbox.css">
-
-
-
   <link rel="icon" href="img/logo.png">
-
   <style>
     body {
-
       background-image: url(img/bg3.png);
       background-size: cover;
       background-attachment: fixed;
-
     }
 
     a {
       text-decoration: none;
-      /* Remove o sublinhado */
       outline: none;
-      /* Remove a linha azul de foco */
       color: black;
-      /* Define a cor do texto */
     }
 
     a p {
       margin: 0;
       font-size: 22px;
-
     }
 
     a:active,
     a:focus {
       outline: none;
-
     }
-
-
-    /*CSS do botao*/
 
     .buttonn-container {
       position: absolute;
-      /* Use absolute positioning for precise control */
       top: 20px;
-      /* Place the button at the top */
       left: 0;
-      /* Align the button to the left */
       margin: 0;
-      /* Remove any default margins */
       text-align: center;
-      /* Center the button within its container */
     }
 
     .button {
@@ -82,17 +57,12 @@
     .button:hover {
       background: #663399;
     }
-
-    /*Fim CSS do botao*/
   </style>
-
 </head>
-
 
 <body>
 
-  <!--MENU (SHELBY)-->
-  <!-- Logo -->
+  <!-- MENU -->
   <div class="logo">
     <a href="home.html">
       <img src="img/mema.png" alt="Nome da sua empresa ou marca">
@@ -100,289 +70,244 @@
   </div>
 
   <div class="buttonn-container">
-    <a href="index.php" class="button" style="text-decoration: none;">Sair</a>
+    <a href="index.php" class="button">Sair</a>
   </div>
 
   <header id="header">
     <div class="container">
       <div class="flex">
-
-
-        <!-- Navegação -->
-
         <nav>
           <ul>
-            <!--<li> <a href="#seção fotos"> FOTOS </a> </li>-->
             <li> <a href="videos.html"> VÍDEOS </a> </li>
             <li> <a href="trabalhos.html"> TRABALHOS </a> </li>
             <li> <a href="alunos.html"> ALUNOS </a> </li>
           </ul>
         </nav>
-
-        <div class="btn-contato">
-          <!-- Seu botão de contato aqui -->
-        </div>
-      </div><!--FLEX-->
-    </div> <!--FIM CONTAINER-->
+      </div>
+    </div>
   </header>
 
-  <!--FIM MENU (SHELBY)-->
+  <!-- GALERIA DE FOTOS -->
+  <section id="seção-fotos">
+    <h1 class="fotos">FOTOS</h1>
+    <main>
+      <div class="gallery-container">
+        <!-- Foto 1 -->
+        <a href="img/aniversário.jpeg" class="gallery-items" data-lightbox="models" data-title="Aniversário do Diego">
+          <img src="img/aniversário.jpeg">
+          <p> Aniversário do Diego no bar do Osmar </p>
+          <p> 13/09/2024 </p>
+        </a>
 
+        <!-- Outras fotos -->
 
-  <br><br>
+        <a href="img/senai.jpeg" class="gallery-items" data-lightbox="models"
+          data-title="Galerinha feliz indo visitar o SENAI">
+          <img src="img/senai.jpeg">
 
+          <p> Passeio SENAI </p>
 
+          <p> 16/09/2024 </p>
 
-  <!--GALERIA PROJ. (SHELBY)-->
-  <header2 id="seção fotos">
-    <h1 href="h">FOTOS</h1>
-  </header2>
-  <br>
-  <main>
-    <div class="gallery-container">
 
-      <a href="img/aniversário.jpeg" class="gallery-items" data-lightbox="models" data-title="aniversário do Diego">
-        <img src="img/aniversário.jpeg">
+        </a>
 
-        <p> Aniversário do Diego no bar do Osmar </p>
+        <a href="img/bal.jpeg" class="gallery-items" data-lightbox="models" data-title="Peixão mais grande, Diego.">
+          <img src="img/bal.jpeg">
 
-        <p> 13/09/2024 </p>
+          <p> Banenário. </p>
 
-      </a>
+          <p> 19/11/2024 </p>
 
 
-      <a href="img/senai.jpeg" class="gallery-items" data-lightbox="models"
-        data-title="Galerinha feliz indo visitar o SENAI">
-        <img src="img/senai.jpeg">
+        </a>
 
-        <p> Passeio SENAI </p>
+        <a href="img/img4.png" class="gallery-items" data-lightbox="models" data-title="The gang is what I trust ">
+          <img src="img/img4.png">
 
-        <p> 16/09/2024 </p>
+          <p> The gang is what trust </p>
 
+          <p> 09/04/2024 </p>
 
-      </a>
 
-      <a href="img/bal.jpeg" class="gallery-items" data-lightbox="models" data-title="Peixão mais grande, Diego.">
-        <img src="img/bal.jpeg">
+        </a>
 
-        <p> Banenário. </p>
 
-        <p> 19/11/2024 </p>
+        <a href="img/img5.png" class="gallery-items" data-lightbox="models" data-title="Mensagem do dia">
+          <img src="img/img5.png">
 
 
-      </a>
+          <p> Conselho do dia </p>
 
-      <a href="img/img4.png" class="gallery-items" data-lightbox="models" data-title="The gang is what I trust ">
-        <img src="img/img4.png">
+          <p> 09/04/2024 </p>
 
-        <p> The gang is what trust </p>
 
-        <p> 09/04/2024 </p>
 
+        </a>
 
-      </a>
+        <a href="img/img6.png" class="gallery-items" data-lightbox="models"
+          data-title="Momentos antes de AMASSARMOS O RANGO">
+          <img src="img/img6.png">
 
+          <p>
+            Antes do RANGO
+          </p>
 
-      <a href="img/img5.png" class="gallery-items" data-lightbox="models" data-title="Mensagem do dia">
-        <img src="img/img5.png">
+          <p>
+            09/04/2024
+          </p>
 
+        </a>
 
-        <p> Conselho do dia </p>
+        <a href="img/j.jpeg" class="gallery-items" data-lightbox="models" data-title="4 autistas">
+          <img src="img/j.jpeg">
 
-        <p> 09/04/2024 </p>
+          <p> José fingindo que está estudando. </p>
 
+          <p> 09/04/2024 </p>
 
+        </a>
 
-      </a>
+        <a href="img/img8.png" class="gallery-items" data-lightbox="models" data-title="Esses fumaram o traficante">
+          <img src="img/img8.png">
 
-      <a href="img/img6.png" class="gallery-items" data-lightbox="models"
-        data-title="Momentos antes de AMASSARMOS O RANGO">
-        <img src="img/img6.png">
+          <p> Esses fumaram o traficante </p>
 
-        <p>
-          Antes do RANGO
-        </p>
+          <p> 09/04/2024 </p>
 
-        <p>
-          09/04/2024
-        </p>
 
-      </a>
+        </a>
 
-      <a href="img/j.jpeg" class="gallery-items" data-lightbox="models" data-title="4 autistas">
-        <img src="img/j.jpeg">
+        <a href="img/img9.jpg" class="gallery-items" data-lightbox="models" data-title="A galera reunida">
+          <img src="img/img9.jpg">
 
-        <p> José fingindo que está estudando. </p>
+          <p> Galera legal reunida </p>
 
-        <p> 09/04/2024 </p>
+          <p> 09/04/2024 </p>
 
-      </a>
+        </a>
 
-      <a href="img/img8.png" class="gallery-items" data-lightbox="models" data-title="Esses fumaram o traficante">
-        <img src="img/img8.png">
+        <a href="img/img10.png" class="gallery-items" data-lightbox="models" data-title="Viagem dos guri">
+          <img src="img/img10.png">
 
-        <p> Esses fumaram o traficante </p>
 
-        <p> 09/04/2024 </p>
+          <p> Viagem dos guri </p>
 
+          <p> 09/04/2024 </p>
 
-      </a>
+        </a>
 
-      <a href="img/img9.jpg" class="gallery-items" data-lightbox="models" data-title="A galera reunida">
-        <img src="img/img9.jpg">
+        <a href="img/img11.png" class="gallery-items" data-lightbox="models"
+          data-title="Vieira impressionado com o céu">
+          <img src="img/img11.png">
 
-        <p> Galera legal reunida </p>
 
-        <p> 09/04/2024 </p>
+          <p>
+            Vieira impressionado com o céu
+          </p>
+          <p>
+            09/04/2024
 
-      </a>
+          </p>
 
-      <a href="img/img10.png" class="gallery-items" data-lightbox="models" data-title="Viagem dos guri">
-        <img src="img/img10.png">
 
 
-        <p> Viagem dos guri </p>
+        </a>
 
-        <p> 09/04/2024 </p>
+        <a href="img/img12.jpeg" class="gallery-items" data-lightbox="models" data-title="Alunos antes do CAPS">
+          <img src="img/img12.jpeg">
 
-      </a>
 
-      <a href="img/img11.png" class="gallery-items" data-lightbox="models" data-title="Vieira impressionado com o céu">
-        <img src="img/img11.png">
+          <p> Alunos pré Caps </p>
 
+          <p> 09/04/2024 </p>
 
-        <p>
-          Vieira impressionado com o céu
-        </p>
-        <p>
-          09/04/2024
 
-        </p>
+        </a>
 
 
 
-      </a>
 
-      <a href="img/img12.jpeg" class="gallery-items" data-lightbox="models" data-title="Alunos antes do CAPS">
-        <img src="img/img12.jpeg">
 
+      </div>
+    </main>
+  </section>
 
-        <p> Alunos pré Caps </p>
-
-        <p> 09/04/2024 </p>
-
-
-      </a>
-
-
-    </div>
-
-  </main>
-  <br>
-  </div>
-
-  </main>
-
-  <!--FIM GALERIA PROJ. (SHELBY)-->
-
-
-
-  <!--FOOTER (SHELBY)-->
+  <!-- FOOTER -->
   <footer>
     <div id="footer_content">
+      <!-- Contatos -->
       <div id="footer_contacts">
         <h1>TDS</h1>
         <p>Mais que amigos, friends.</p>
-        <br>
-        <p>Nos siga em nossas redes sociais</p>
+        <p>Nos siga em nossas redes sociais:</p>
 
+        <!-- Redes Sociais -->
         <div id="footer_social_media">
-          <a href="https://www.instagram.com/terceiro_tds/" class="footer-link" id="instagram">
+          <a href="https://www.instagram.com/terceiro_tds/" class="footer-link" id="instagram" target="_blank">
             <i class="fa-brands fa-instagram"></i>
           </a>
-
-          <a href="https://www.facebook.com/eebduartemagalhaes/" class="footer-link" id="facebook">
+          <a href="https://www.facebook.com/eebduartemagalhaes/" class="footer-link" id="facebook" target="_blank">
             <i class="fa-brands fa-facebook-f"></i>
           </a>
-
-          <a href="https://whatzapp.com" class="footer-link" id="whatsapp">
+          <a href="https://whatzapp.com" class="footer-link" id="whatsapp" target="_blank">
             <i class="fa-brands fa-whatsapp"></i>
           </a>
         </div>
       </div>
 
+      <!-- Lista de Heteros -->
       <ul class="footer-list">
         <li>
-          <h3>Heteros da sala</h3>
+          <h3>Heteros da Sala</h3>
         </li>
-        <li>
-          <a href="alunos.html" class="footer-link">Diego</a>
-        </li>
-        <li>
-          <a href="alunos.html" class="footer-link">Gabriel</a>
-        </li>
-        <li>
-          <a href="alunos.html" class="footer-link">José</a>
-        </li>
+        <li><a href="alunos.html" class="footer-link">Diego</a></li>
+        <li><a href="alunos.html" class="footer-link">Gabriel</a></li>
+        <li><a href="alunos.html" class="footer-link">José</a></li>
       </ul>
 
+      <!-- Sobre a Página -->
       <ul class="footer-list">
         <li>
-          <h3>Sobre a pagina</h3>
+          <h3>Sobre a Página</h3>
         </li>
-        <li>
-          <a href="professores.html" class="footer-link">Professores</a>
-        </li>
-        <li>
-          <a href="videos.html" class="footer-link">Vídeos</a>
-        </li>
-        <li>
-          <a href="home.html" class="footer-link">Fotos</a>
-        </li>
+        <li><a href="professores.html" class="footer-link">Professores</a></li>
+        <li><a href="videos.html" class="footer-link">Vídeos</a></li>
+        <li><a href="home.html" class="footer-link">Fotos</a></li>
       </ul>
 
+      <!-- Assinatura ou Newsletter (Opcional) -->
       <div id="footer_subscribe">
-        <h3></h3>
-
-        <p>
-
-        </p>
-
+        <h3>Receba novidades</h3>
+        <p>Inscreva-se para receber atualizações:</p>
         <div id="input_group">
-
-          <button>
-
-          </button>
+          <input type="email" placeholder="Seu e-mail" aria-label="Seu e-mail">
+          <button type="button">Inscrever-se</button>
         </div>
       </div>
     </div>
 
+    <!-- Direitos Autorais -->
     <div id="footer_copyright">
-      &#169
-      2023 all rights reserved
+      &#169; 2023 Todos os direitos reservados
     </div>
   </footer>
-  <!--FIM DO FOOTER (SHELBY)-->
+
 
   <script src="js/menu.js"></script>
   <script src="js/lightbox-plus-jquery.js"></script>
-
   <script>
-
     document.querySelectorAll('.video-container2 video').forEach(vid => {
       vid.onclick = () => {
         document.querySelector('.popup-video').style.display = 'block';
-        document.querySelector('.popup-video video').src = vid.getAttribute('src')
-
+        document.querySelector('.popup-video video').src = vid.getAttribute('src');
       }
     });
 
     document.querySelector('.popup-video span').onclick = () => {
       document.querySelector('.popup-video').style.display = 'none';
-    }
-
+    };
   </script>
-
 </body>
 
 </html>
