@@ -1,10 +1,3 @@
-
-window.addEventListener("scroll", function () {
-  let header = document.querySelector('#header')
-  header.classList.toggle('rolagem', window.scrollY > 50)
-
-})
-
 // Adiciona um evento de escuta ao evento de rolagem da janela
 window.addEventListener("scroll", function () {
   // Seleciona o elemento com o id "header"
